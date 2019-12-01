@@ -1,7 +1,9 @@
 package com.gaejangmo.productsearchapi.invoker;
 
 import com.gaejangmo.productsearchapi.invoker.factory.NaverShoppingParamFactory;
-import com.gaejangmo.productsearchapi.web.dto.ProductResponseDto;
+import com.gaejangmo.productsearchapi.invoker.parser.SearchResultParser;
+import com.gaejangmo.productsearchapi.web.dto.ProductsDto;
+import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +18,17 @@ public class ApiInvoker {
         this.restTemplate = restTemplate;
     }
 
-    public ResponseEntity<ProductResponseDto> getItem(String productName) {
-        ResponseEntity<Object> result = restTemplate.exchange(
+    public ResponseEntity<ProductsDto> getItem(String productName) throws ParseException {
+        ResponseEntity<String> result = restTemplate.exchange(
                 NaverShoppingParamFactory.getUrl(ApiParams.SHOP_API.getUrl(), productName),
                 HttpMethod.GET,
                 NaverShoppingParamFactory.createHttpEntity(),
-                Object.class);
+                String.class);
+
+        // TODO 파싱 exchange 말고 getForObject로 바꿔야하남
+        ProductsDto parse = SearchResultParser.parse(result.getBody());
 
         // TODO 도메인 정의
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(parse, HttpStatus.OK);
     }
 }
