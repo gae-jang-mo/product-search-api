@@ -4,6 +4,7 @@ import com.gaejangmo.productsearchapi.invoker.factory.NaverShoppingParamFactory;
 import com.gaejangmo.productsearchapi.invoker.parser.SearchResultParser;
 import com.gaejangmo.productsearchapi.web.dto.ProductsDto;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,13 @@ import org.springframework.web.client.RestTemplate;
 public class ApiInvoker {
     private RestTemplate restTemplate;
 
-    public ApiInvoker(RestTemplate restTemplate) {
+    @Value("${searchapi.naverid}")
+    private String naverId;
+
+    @Value("${searchapi.naversecret}")
+    private String naverSecret;
+
+    public ApiInvoker(final RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
@@ -22,7 +29,7 @@ public class ApiInvoker {
         ResponseEntity<String> result = restTemplate.exchange(
                 NaverShoppingParamFactory.getUrl(ApiParams.SHOP_API.getUrl(), productName),
                 HttpMethod.GET,
-                NaverShoppingParamFactory.createHttpEntity(),
+                NaverShoppingParamFactory.createHttpEntityWithNaverKeys(naverId, naverSecret),
                 String.class);
 
         // TODO 파싱 exchange 말고 getForObject로 바꿔야하남

@@ -14,11 +14,10 @@ public class NaverShoppingParamFactory {
     private static final String CLIENT_ID = "X-Naver-Client-Id";
     private static final String CLIENT_SECRET = "X-Naver-Client-Secret";
 
-    public static HttpEntity<String> createHttpEntity() {
-        final HttpHeaders headers = new HttpHeaders();
-        // TODO 환경변수로 숨겨야 함
-        headers.set(CLIENT_ID, "");
-        headers.set(CLIENT_SECRET, "");
+    public static HttpEntity<String> createHttpEntityWithNaverKeys(final String naverId, final String naverSecret) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(CLIENT_ID, naverId);
+        headers.set(CLIENT_SECRET, naverSecret);
         return new HttpEntity<>(headers);
     }
 

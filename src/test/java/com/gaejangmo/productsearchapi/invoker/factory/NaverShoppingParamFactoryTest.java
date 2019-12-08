@@ -2,6 +2,7 @@ package com.gaejangmo.productsearchapi.invoker.factory;
 
 import com.gaejangmo.productsearchapi.invoker.ApiParams;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 
 import java.net.URI;
@@ -17,9 +18,15 @@ class NaverShoppingParamFactoryTest {
     private static final String CLIENT_ID = "X-Naver-Client-Id";
     private static final String CLIENT_SECRET = "X-Naver-Client-Secret";
 
+    @Value("${searchapi.naverid}")
+    private String naverId;
+
+    @Value("${searchapi.naversecret}")
+    private String naverSecret;
+
     @Test
     void 키_발급() {
-        HttpEntity<String> httpEntity = NaverShoppingParamFactory.createHttpEntity();
+        HttpEntity<String> httpEntity = NaverShoppingParamFactory.createHttpEntityWithNaverKeys(naverId, naverSecret);
 
         assertThat(httpEntity.getHeaders().get(CLIENT_ID)).isNotNull();
         assertThat(httpEntity.getHeaders().get(CLIENT_SECRET)).isNotNull();
