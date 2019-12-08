@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: product-search-api
+    name: productsearchserver
   profiles:
     active: local
 ---
 spring:
   application:
-    name: product-search-api
+    name: productsearchserver
   profiles:
     active: local
   cloud:
@@ -18,7 +18,7 @@ spring:
 ---
 spring:
   application:
-    name: product-search-api
+    name: productsearchserver
   profiles: dev
   cloud:
     config:
