@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: product-search-api
@@ -5,6 +8,8 @@ spring:
     active: local
 ---
 spring:
+  application:
+    name: product-search-api
   profiles:
     active: local
   cloud:
@@ -12,6 +17,8 @@ spring:
       enabled: false
 ---
 spring:
+  application:
+    name: product-search-api
   profiles: dev
   cloud:
     config:
