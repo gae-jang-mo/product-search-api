@@ -1,6 +1,6 @@
 package com.gaejangmo.productsearchapi.invoker.dummy;
 
-import com.gaejangmo.productsearchapi.model.product.ProductType;
+import com.gaejangmo.productsearchapi.model.product.NaverProductType;
 import com.gaejangmo.productsearchapi.web.dto.ProductDto;
 import com.gaejangmo.productsearchapi.web.dto.ProductsDto;
 
@@ -16,7 +16,7 @@ public class TestData {
                         0,
                         "트루이즈",
                         21260586063L,
-                        ProductType.getType(2)),
+                        NaverProductType.getType(2)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -24,7 +24,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -32,7 +32,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -40,7 +40,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -48,7 +48,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -56,7 +56,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -64,7 +64,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -72,7 +72,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -80,7 +80,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1)),
+                        NaverProductType.getType(1)),
                 new ProductDto("애플 <b>맥북</b>프로 13형 2019년형 MUHN2KH/A",
                         "https://search.shopping.naver.com/gate.nhn?id=20486074380",
                         "https://shopping-phinf.pstatic.net/main_2048607/20486074380.20190802163834.jpg",
@@ -88,7 +88,7 @@ public class TestData {
                         2820000,
                         "네이버",
                         20486074380L,
-                        ProductType.getType(1))
+                        NaverProductType.getType(1))
         ));
     }
 }

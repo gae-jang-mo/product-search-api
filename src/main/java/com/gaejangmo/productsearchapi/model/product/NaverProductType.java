@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 @AllArgsConstructor
 @Getter
-public enum ProductType {
+public enum NaverProductType {
     // 일반 상품
     GENERAL_PRICE_COMPARISON_PRICE(1),
     GENERAL_PRICE_NON_MATCHING_GENERAL_PRODUCT(2),
@@ -31,9 +31,9 @@ public enum ProductType {
 
     private final int type;
 
-    public static ProductType getType(int type) {
+    public static NaverProductType getType(int type) {
         return Arrays.stream(values())
-                .filter(productType -> productType.type == type)
+                .filter(naverProductType -> naverProductType.type == type)
                 .findAny()
                 .orElseThrow(() -> new ProductTypeNotFoundException("제품 코드를 찾을 수 없습니다"));
     }

@@ -1,19 +1,20 @@
 package com.gaejangmo.productsearchapi.web.dto;
 
 import com.gaejangmo.productsearchapi.model.product.NaverProductType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductDto {
-    private String title;
-    private String link;
-    private String image;
-    private int lowestPrice;
-    private int highestPrice;
+@Builder
+@EqualsAndHashCode
+public class ProductResponseDto {
+    private String productName;
+    private String buyUrl;
+    private String imageUrl;
+    private long lowestPrice;
+    private long highestPrice;
     private String mallName;
     private long productId;
     private NaverProductType naverProductType;
