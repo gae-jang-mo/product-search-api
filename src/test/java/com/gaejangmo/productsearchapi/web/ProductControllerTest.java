@@ -11,7 +11,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @AutoConfigureWebTestClient
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("dev")
-class SearchControllerTest {
+class ProductControllerTest {
     @Autowired
     private WebTestClient webTestClient;
 
