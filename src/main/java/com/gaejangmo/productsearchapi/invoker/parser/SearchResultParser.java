@@ -28,8 +28,7 @@ public class SearchResultParser {
     public static List<ProductResponseDto> parse(String input) throws ParseException {
         JSONObject parse = (JSONObject) PARSER.parse(input);
         JSONArray items = (JSONArray) parse.get(TARGET_KEY);
-        List<ProductResponseDto> products = parseProducts(items);
-        return products;
+        return parseProducts(items);
     }
 
     private static List<ProductResponseDto> parseProducts(JSONArray items) {
