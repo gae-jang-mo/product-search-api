@@ -1,0 +1,12 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh"
+
+spring:
+  profiles:
+    active: local
+---
+spring.profiles: local, test
+spring.profiles.include: naver

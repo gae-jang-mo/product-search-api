@@ -30,3 +30,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### naver key secret ###
+application-naver.yml
