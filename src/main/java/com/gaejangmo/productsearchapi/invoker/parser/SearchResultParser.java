@@ -40,7 +40,8 @@ public class SearchResultParser {
     }
 
     private static ProductResponseDto createProductDto(JSONObject jsonObject) {
-        return new ProductResponseDto((String) jsonObject.get(PRODUCT_NAME),
+        return new ProductResponseDto(
+                HtmlTagRemover.parse((String) jsonObject.get(PRODUCT_NAME)),
                 (String) jsonObject.get(BUY_LINK),
                 (String) jsonObject.get(IMAGE),
                 Integer.parseInt((String) jsonObject.get(LOWEST_PRICE)),
