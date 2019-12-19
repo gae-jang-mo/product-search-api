@@ -2,7 +2,6 @@ package com.gaejangmo.productsearchapi.web;
 
 import com.gaejangmo.productsearchapi.invoker.ApiInvoker;
 import com.gaejangmo.productsearchapi.web.dto.ProductResponseDto;
-import org.json.simple.parser.ParseException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,15 +11,14 @@ import java.util.List;
 
 @RestController
 public class ProductController {
-    private ApiInvoker apiInvoker;
+    private final ApiInvoker apiInvoker;
 
-    public ProductController(ApiInvoker apiInvoker) {
+    public ProductController(final ApiInvoker apiInvoker) {
         this.apiInvoker = apiInvoker;
     }
 
     @GetMapping("/api/v1/products")
-    public ResponseEntity<List<ProductResponseDto>> search(@RequestParam String productName) throws ParseException {
-        // TODO invoke 의 exception 을 잡아서 controller advice 로 처리해보자. parseException
+    public ResponseEntity<List<ProductResponseDto>> search(@RequestParam String productName) {
         return apiInvoker.getItem(productName);
     }
 }
