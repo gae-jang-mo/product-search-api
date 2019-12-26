@@ -24,6 +24,7 @@ class SearchResultParserTest {
         JSONObject jsonObject = (JSONObject) parser.parse(fileReader);
         List<ProductResponseDto> parse = SearchResultParser.parse(jsonObject.toJSONString());
 
-        assertThat(parse.size()).isEqualTo(10);
+        // test 데이터에서 productType이 1인 것들만 필터링
+        assertThat(parse.size()).isEqualTo(8);
     }
 }
