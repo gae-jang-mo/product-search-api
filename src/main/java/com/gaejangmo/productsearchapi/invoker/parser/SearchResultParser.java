@@ -28,13 +28,14 @@ public class SearchResultParser {
     public static List<ProductResponseDto> parse(String input) throws ParseException {
         JSONObject parse = (JSONObject) PARSER.parse(input);
         JSONArray items = (JSONArray) parse.get(TARGET_KEY);
-        return parseProducts(items);
+        return parseProductsInGeneralPriceComparisonPrice(items);
     }
 
-    private static List<ProductResponseDto> parseProducts(JSONArray items) {
+    private static List<ProductResponseDto> parseProductsInGeneralPriceComparisonPrice(JSONArray items) {
         return IntStream.range(0, items.size())
                 .mapToObj(items::get)
                 .map(item -> (JSONObject) item)
+                .filter(jsonObject -> NaverProductType.isGeneralPriceComparisonPrice((String) jsonObject.get(PRODUCT_TYPE)))
                 .map(SearchResultParser::createProductDto)
                 .collect(Collectors.toList());
     }
