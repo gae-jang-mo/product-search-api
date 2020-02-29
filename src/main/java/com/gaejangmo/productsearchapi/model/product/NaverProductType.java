@@ -38,7 +38,9 @@ public enum NaverProductType {
                 .orElseThrow(() -> new ProductTypeNotFoundException("제품 코드를 찾을 수 없습니다"));
     }
 
-    public static boolean isGeneralPriceComparisonPrice(String type) {
-        return GENERAL_PRICE_COMPARISON_PRICE.getType() == Integer.parseInt(type);
+    public static boolean isGeneralProduct(NaverProductType type) {
+        return GENERAL_PRICE_COMPARISON_PRICE.equals(type) ||
+                GENERAL_PRICE_NON_MATCHING_GENERAL_PRODUCT.equals(type) ||
+                GENERAL_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT.equals(type);
     }
 }

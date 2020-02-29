@@ -2,7 +2,7 @@ package com.gaejangmo.productsearchapi.invoker;
 
 import com.gaejangmo.productsearchapi.model.product.NaverProductType;
 import com.gaejangmo.productsearchapi.web.dto.ProductResponseDto;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class ApiInvokerItTest {
     @Autowired
     private ApiInvoker apiInvoker;
 
-    @Test
+    @Ignore
     void name() {
         ResponseEntity<List<ProductResponseDto>> result = apiInvoker.getItem("맥북");
 

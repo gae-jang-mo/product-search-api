@@ -15,7 +15,7 @@ class ProductControllerTest {
 
     @Test
     void 상품검색() {
-        // TODO mock
+        // TODO mock 테스트만 할까? 빌드시 test 전략에 따라 통합 테스트를 제외 하든지 논의가 필요해 보임
         webTestClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/api/v1/products")
