@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -48,12 +49,13 @@ public class ApiInvoker {
     }
 
     private List<ProductResponseDto> parse(final ResponseEntity<String> result) {
-        ProductResponseDtos products = null;
+        ProductResponseDtos products;
         try {
             products = objectMapper.readValue(Objects.requireNonNull(result.getBody()), ProductResponseDtos.class);
         } catch (JsonProcessingException e) {
             logger.error("네이버 상품 데이터를 파싱하지 못했습니다 errorMsg {} body {}", e.getMessage(), result.getBody());
+            return Collections.emptyList();
         }
-        return SearchResultParser.parse(Objects.requireNonNull(products).getProductDtos());
+        return SearchResultParser.parse(products.getProductDtos());
     }
 }

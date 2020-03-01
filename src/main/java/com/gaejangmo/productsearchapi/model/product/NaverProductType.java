@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Arrays;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -29,6 +30,9 @@ public enum NaverProductType {
     SCHEDULED_DISCONTINUED_PRICE_NON_MATCHING_GENERAL_PRODUCT(11),
     SCHEDULED_DISCONTINUED_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT(12);
 
+    private static final List<NaverProductType> GENERAL_PRODUCT_TYPES =
+            List.of(GENERAL_PRICE_COMPARISON_PRICE, GENERAL_PRICE_NON_MATCHING_GENERAL_PRODUCT, GENERAL_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT);
+
     private final int type;
 
     public static NaverProductType getType(int type) {
@@ -39,8 +43,6 @@ public enum NaverProductType {
     }
 
     public static boolean isGeneralProduct(NaverProductType type) {
-        return GENERAL_PRICE_COMPARISON_PRICE.equals(type) ||
-                GENERAL_PRICE_NON_MATCHING_GENERAL_PRODUCT.equals(type) ||
-                GENERAL_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT.equals(type);
+        return GENERAL_PRODUCT_TYPES.contains(type);
     }
 }
