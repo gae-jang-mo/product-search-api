@@ -1,12 +1,12 @@
 package com.gaejangmo.productsearchapi;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class ProductSearchApiApplicationTests {
 
-    @Test
+    @Ignore
     void contextLoads() {
     }
 
