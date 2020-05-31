@@ -1,12 +1,18 @@
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "refresh"
-
 spring:
   profiles:
     active: local
 ---
-spring.profiles: local, test
+spring.profiles: local
 spring.profiles.include: naver
+
+---
+spring.profiles: dev
+spring.profiles.include: file-info-logging, file-error-logging
+
+logging:
+  file:
+    path: /home/ec2-user
+
+searchapi:
+  naverid: ${naver.naverid}
+  naversecret: ${naver.naversecret}

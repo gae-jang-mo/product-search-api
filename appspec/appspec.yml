@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files: # source to destination
   - source: /
-    destination: /home/ec2-user/product-search-server/deploy/zip/
+    destination: /home/ec2-user/product-search-api/deploy/zip/
     overwrite: yes
 
 permissions:
