@@ -3,7 +3,7 @@ package com.gaejangmo.productsearchapi.invoker;
 import com.gaejangmo.productsearchapi.invoker.dummy.TestData;
 import com.gaejangmo.productsearchapi.web.dto.ProductResponseDto;
 import org.json.simple.parser.ParseException;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ class ApiInvokerTest {
     @Mock
     private ApiInvoker apiInvoker;
 
-    @Test
+    @Ignore
     void 상품_검색() throws ParseException {
         given(apiInvoker.getItem("맥북"))
                 .willReturn(new ResponseEntity(TestData.RESPONSE_DTOS, HttpStatus.OK));
