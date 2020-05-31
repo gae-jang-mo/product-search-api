@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Arrays;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -29,6 +30,9 @@ public enum NaverProductType {
     SCHEDULED_DISCONTINUED_PRICE_NON_MATCHING_GENERAL_PRODUCT(11),
     SCHEDULED_DISCONTINUED_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT(12);
 
+    private static final List<NaverProductType> GENERAL_PRODUCT_TYPES =
+            List.of(GENERAL_PRICE_COMPARISON_PRICE, GENERAL_PRICE_NON_MATCHING_GENERAL_PRODUCT, GENERAL_PRICE_COMPARISON_MATCHING_GENERAL_PRODUCT);
+
     private final int type;
 
     public static NaverProductType getType(int type) {
@@ -38,7 +42,7 @@ public enum NaverProductType {
                 .orElseThrow(() -> new ProductTypeNotFoundException("제품 코드를 찾을 수 없습니다"));
     }
 
-    public static boolean isGeneralPriceComparisonPrice(String type) {
-        return GENERAL_PRICE_COMPARISON_PRICE.getType() == Integer.parseInt(type);
+    public static boolean isGeneralProduct(NaverProductType type) {
+        return GENERAL_PRODUCT_TYPES.contains(type);
     }
 }
